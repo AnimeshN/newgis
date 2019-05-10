@@ -1,0 +1,9 @@
+{% extends 'map/base.html'%}
+{% block content %}
+{% if user.is_authenticated %}
+{% load static%}
+
+var string = "<img width=100 height=100 src='{% static `data/swm_hwest/" + s_photo + ".jpg`%}'/>
+{% static '' %}
+{%endif%}
+{%endblock%}

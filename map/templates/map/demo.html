@@ -1,0 +1,82 @@
+{% extends 'map/base.html'%}
+{% block content %}
+{% load static%}
+
+<style>
+    .mydiv{
+        margin: 50px;
+        margin-bottom: 20rem;
+    }
+
+     .cards{
+        margin: 20px;
+    }
+</style>
+<div class="mydiv" style="">
+        <div class="card cards" style="width: 18rem; float: left;">
+      <img src="{% static 'images/home_thumbnail/census.png'%}"  alt="..." width="12rem" height="42rem">
+      <div class="card-body">
+        <h5 class="card-title">Census Maps</h5>
+        <p class="card-text"><font size="-1">Village wise details of census data, along with ground water recharge priorities is compiled with village boundaries and town boundaries. Census data are for 2011 census and includes 1. Household amenities 2. Village amenities, 3. Demography and 4. Town amenities. A combined towns and villages map, grouped for every district,is also included. This is derived from the data published on IIT site (<a href="https://www.cse.iitb.ac.in/~pocra/MahaCensus_shapefile_data1.2/MaharashtraCensus.html">Click here</a>)Explanations for field names in tables are provided in separate tables.</font></p>
+        <a href="{% url 'login'%}" class="btn btn-secondary">Visit</a>
+      </div>
+    </div>
+    
+    
+    <div class="card cards " style="width: 18rem;float: left;  ">
+      <img src="{% static 'images/home_thumbnail/swm.png'%}" alt="..." height="200" width="100">
+      <div class="card-body">
+        <h5 class="card-title">SWM Maps</h5>
+        <p class="card-text"><font size="-1">This is a Community based platform . Objective is to evolve it into a tool for community action which any local community can undertake in their locality. To start with it will help  visualising the state of waste management. The Census data, buildings data from voter lists  and DP layers , schools layer etc  will help contextualise the waste management in a given area . To encourage  best practices including waste seggregation, disposal etc a composite  index of greenness will be evolved. We shall take a cue from the weightages PCMC has used to incentivise property tax.  Important change will be to introduce weightage for  menstrual waste seggregation, and disposal.It is expected that  trends toward reduction of ( wet and dry and menstrual ) waste per capita will help community to spur action.</font></p>
+        <a href="{% url 'login'%}" class="btn btn-secondary">Visit</a>
+      </div>
+    </div>
+     
+
+     
+
+    <div class="card cards " style="width: 18rem;float: left; ">
+      <img src="{% static 'images/home_thumbnail/edu.png'%}" class="" alt="..." height="200" width="100">
+      <div class="card-body">
+        <h5 class="card-title">Education Maps</h5>
+        <p class="card-text"><font size="-1">This ( GIS + CMS i.e geographical information system and content management system)  is proposed to be community platform to represent educational informtion including location. This will help evaluate and project access, quantity and quality of education from pre-primary to professional education.
+        Community organisations should be able to take up this exercise for monitoring their own area of interest, granularly.
+        As of now there appears to be no reliable map enabled resource for visualising location of educational institions even though location (as in distance from residence) is crucial factor in laws relating to Right To Education ( RTE).This platform should also help analysing adequacy of amenities when combined with demography and other census data which are  also in maps. Assesement of achievements of learning objectives could also figure in,  in this platform.
+        It is proposed that educational NGOs own up this page and use the same to assert the rights of the underprivileged as also to improve collaborations among institutions across the levels.   </font></p>
+        <a href="{% url 'login'%}" class="btn btn-secondary">Visit</a>
+      </div>
+    </div>
+
+     
+
+  
+      
+
+     
+
+     
+
+      <div class="card cards" style="width: 18rem; padding-bottom: 10rem">
+      <img src="{% static 'images/home_thumbnail/health.png'%}" class="" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">Health Maps</h5>
+        <p class="card-text"><font size="-1">Health interface for malegaon and bhiwandi.</font></p>
+        <a href="{% url 'login' %}" class="btn btn-secondary">Visit</a>
+      </div>
+    </div>
+     
+
+     
+
+      <div class="card cards" style="width: 18rem; padding-bottom: 10rem">
+      <img src="{% static 'images/home_thumbnail/others.png'%}" class="" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">Other Maps</h5>
+        <p class="card-text"><font size="-1">Community data from different domains.</font></p>
+        <a href="#" class="btn btn-secondary">Visit</a>
+      </div>
+    </div>
+     
+</div>
+
+{% endblock %}
