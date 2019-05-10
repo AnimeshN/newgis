@@ -139,8 +139,11 @@ def upload_layers(request):
     if request.method == 'POST':
         form = LayersForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('')
+            file = form.save(commit=False)
+            file.user = request.user
+            file.save()
+            messages.success(request, 'your file is saved on server')
+            return redirect('upload_layers')
     else:
         form = LayersForm()
     return render(request,'map/upload_layers.html',{'form':form})
