@@ -1,4 +1,4 @@
-#!/home/user/Desktop/communitygis/gis/bin/python3
+#!/home/jitendra/Desktop/animesh/newgis/gis/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

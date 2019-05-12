@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1bk)r+09&i8voa)3pjd&c3w$ghv)#5$f$i3x4p9&4-7%-4o=ix'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['40.121.15.174','127.0.0.1','makerghat.urbansciences.in']
 
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'mydb',
         'USER': 'jshah',
-        'PASSWORD': 'jshah1234',
+        'PASSWORD': 'communitygis',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/"),
     # '/var/www/static/',
 ]
 
