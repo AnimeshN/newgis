@@ -148,3 +148,9 @@ def upload_layers(request):
         form = LayersForm()
     return render(request,'map/upload_layers.html',{'form':form})
 
+
+def show_upload(request):
+    layers = Layers.objects.filter(user_id = request.user.id)
+    return render(request,'map/showupload.html',{'layers':layers})
+
+

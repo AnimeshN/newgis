@@ -81,8 +81,9 @@ class LayersForm(forms.ModelForm):
 	# select_theme = forms.ChoiceField(choices=select_themes_CHOICES)
 	if_other = forms.CharField(label = '',max_length=30, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Other Theme'}))
 	source = forms.CharField(label = '',max_length=30, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Source of Data'}))
+	
 	tool_used = forms.CharField(label = '',max_length=30, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Tool Used'}))
-
+	layer = forms.FileField(label = '')
 	class Meta:
 		model = Layers
 		fields = ('name_of_layer','description','select_theme','if_other','source','types','style_file_available','tool_used','layer',)
