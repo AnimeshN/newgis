@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from .models import Layers
+from . fields import RestrictedFileField
+
 
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(label = '',max_length=30, required=False, help_text='<small>*Optional.</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Enter First Name'}))
@@ -83,7 +85,7 @@ class LayersForm(forms.ModelForm):
 	source = forms.CharField(label = '',max_length=50, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Source of Data'}))
 	
 	tool_used = forms.CharField(label = '',max_length=50, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Tool Used'}))
-	layer = forms.FileField(label = '')
+	layer = RestrictedFileField(label = '',content_types=['image/jpeg','image/png','application/vnd.google-earth.kml+xml','image/tiff','application/gml+xml','text/csv','application/pdf', 'application/zip','application/x-tar','application/geo+json','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
 	class Meta:
 		model = Layers
 		fields = ('name_of_layer','description','select_theme','if_other','source','types','style_file_available','tool_used','layer',)

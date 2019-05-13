@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'mydb',
         'USER': 'jshah',
-        'PASSWORD': 'communitygis',
+        'PASSWORD': 'jshah1234',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -134,3 +134,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL= '/media/'      #inside media file is saved
+
+MAX_UPLOAD_SIZE = 10485760
