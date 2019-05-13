@@ -77,12 +77,12 @@ select_themes_CHOICES  = (
 class LayersForm(forms.ModelForm):
 	
 	name_of_layer = forms.CharField(label = '',max_length=30, required=True,widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Enter Layers Name'}))
-	description = forms.CharField(label = '',max_length=30, required=True,widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Description'}))
+	description = forms.CharField(label = '',max_length=200, required=True,widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Description'}))
 	# select_theme = forms.ChoiceField(choices=select_themes_CHOICES)
-	if_other = forms.CharField(label = '',max_length=30, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Other Theme'}))
-	source = forms.CharField(label = '',max_length=30, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Source of Data'}))
+	if_other = forms.CharField(label = '',max_length=50, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Other Theme'}))
+	source = forms.CharField(label = '',max_length=50, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Source of Data'}))
 	
-	tool_used = forms.CharField(label = '',max_length=30, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Tool Used'}))
+	tool_used = forms.CharField(label = '',max_length=50, required=False,help_text='<small>*Optional</small>',widget = forms.TextInput(attrs = {'class':'form-control','placeholder':'Tool Used'}))
 	layer = forms.FileField(label = '')
 	class Meta:
 		model = Layers

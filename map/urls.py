@@ -24,7 +24,9 @@ urlpatterns = [
     path('home/water/',views.water,name = 'water'),
 
     path('uploadlayer/',views.upload_layers,name='upload_layers'),
-    path('showupload/',views.show_upload,name='show_upload')
+    path('showupload/',views.show_upload,name='show_upload'),
+    path('deleteupload/<int:pk>/',views.delete_upload,name='delete_upload'),
+    path('showallupload/',views.show_all_upload,name='show_all_upload')
 
 ]
 if settings.DEBUG:

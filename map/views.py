@@ -93,7 +93,7 @@ def signup_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request,('logged out!!'))
-    return render(request,'map/login.html',{})
+    return render(request,'map/front.html',{})
 
 def change_password(request):
     if request.method == 'POST':
@@ -142,8 +142,8 @@ def upload_layers(request):
             file = form.save(commit=False)
             file.user = request.user
             file.save()
-            messages.success(request, 'your file is saved on server')
-            return redirect('upload_layers')
+            messages.success(request, 'Your file is saved')
+            return redirect('show_upload')
     else:
         form = LayersForm()
     return render(request,'map/upload_layers.html',{'form':form})
@@ -151,6 +151,21 @@ def upload_layers(request):
 
 def show_upload(request):
     layers = Layers.objects.filter(user_id = request.user.id)
+    if not layers:
+        messages.success(request,'No Layer found')
     return render(request,'map/showupload.html',{'layers':layers})
+
+def show_all_upload(request):
+    alllayers = Layers.objects.all()
+    if not alllayers:
+        messages.success(request,'No Layers Found')
+    return render(request,'map/showallupload.html',{'alllayers':alllayers})
+
+def delete_upload(request,pk):
+    if request.method == 'POST':
+        layer = Layers.objects.get(pk=pk)
+        layer.delete()
+    return redirect('show_upload')
+
 
 

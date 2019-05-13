@@ -50,3 +50,7 @@ class Layers(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	def __str__(self):
 		return self.name_of_layer
+
+	def delete(self, *args, **kwargs): 					
+		self.layer.delete()
+		super().delete(*args,**kwargs)
