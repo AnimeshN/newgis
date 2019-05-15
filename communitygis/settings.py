@@ -11,16 +11,18 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+with open('/etc/config.json') as config_file:
+	config = json.load(config_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1bk)r+09&i8voa)3pjd&c3w$ghv)#5$f$i3x4p9&4-7%-4o=ix'
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,9 +82,9 @@ WSGI_APPLICATION = 'communitygis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        'USER': 'jshah',
-        'PASSWORD': 'jshah1234',
+        'NAME': config['DB_NAME'],
+        'USER': config['DB_USER'],
+        'PASSWORD': config['DB_PASS'],
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -153,5 +155,5 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'front'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='819275345460-untt5auo0jsnu03a7a808c694v7s8c5r.apps.googleusercontent.com'  #Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'WRwTYuC8O9tsgL7BDUpV1QqD' #Paste Secret Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config['SOCIAL_AUTH_GOOGLE_OAUTH2_KEY']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config['SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET']
