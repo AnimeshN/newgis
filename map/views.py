@@ -51,6 +51,10 @@ def login_user(request):
                 login(request, user)
                 messages.success(request,('successfully loged in'))
                 return redirect('home')
+            elif user.groups.filter(name='transport').exists():
+                login(request, user)
+                messages.success(request,('successfully loged in'))
+                return redirect('home')
             else:
                 return HttpResponse("no user groups exist")
         else:
@@ -128,7 +132,10 @@ def education(request):
 def test(request):
     if request.method == 'POST':
         FORM = lA
-    return render(request,'map/test.html')    
+    return render(request,'map/test.html')  
+
+def transport(request):
+    return render(request,'map/transportation.html')
 
 
 def health(request):
