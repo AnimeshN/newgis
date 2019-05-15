@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, PassChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.models import User, Group
+
 
 # Upload Data
 from .forms import LayersForm

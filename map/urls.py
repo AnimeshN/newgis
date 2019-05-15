@@ -2,6 +2,8 @@ from django.urls import path , include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+
 # from communitygis.core import views as core_views
 
 
@@ -11,6 +13,7 @@ urlpatterns = [
     path('login/',views.login_user, name = 'login'),
     path('logout/',views.logout_user, name = 'logoutU'),
     path('signup/',views.signup_user, name = 'signup'),
+    
     path('change_password/',views.change_password, name = 'changepass'),
     # path(r'^signup/$', core_views.signup, name='signup'),)
 
@@ -26,7 +29,9 @@ urlpatterns = [
     path('uploadlayer/',views.upload_layers,name='upload_layers'),
     path('showupload/',views.show_upload,name='show_upload'),
     path('deleteupload/<int:pk>/',views.delete_upload,name='delete_upload'),
-    path('showallupload/',views.show_all_upload,name='show_all_upload')
+    path('showallupload/',views.show_all_upload,name='show_all_upload'),
+    url(r'^auth/', include('social_django.urls', namespace='social'))
+
 
 ]
 if settings.DEBUG:

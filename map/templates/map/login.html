@@ -25,5 +25,10 @@
 
         <button type="submit" class="btn btn-primary">Login</button>
 </form>
+<br>
+  <p><strong>-- OR --</strong></p>
+  <a href="{% url 'social:begin' 'google-oauth2' %}">
+    <button class="btn btn-primary">Login using gmail</button>
+  </a><br>
 </div>
 {%endblock%}

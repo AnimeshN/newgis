@@ -31,7 +31,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% if not user.groups.exists %}
+<div class="container">
+    <h2>Information</h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+          Hi! {{user.first_name}}, Thanks for registering.<br>
+          For accessing dashboard please mail us at communitygis3@gmail.com<a href="mailto:commnitygis3@gmail.com?Subject=Enable%my%group" target="_top">(Send Mail)</a> with your registered email <u>{{user.email}}</u> and specify in which theme you are interested.
+          We will enable your dashboard within 24hr.<br>Please also describe how you plan to use CommunityGIS.   <br>Thank you
 
+      </div>
+    </div>
+  </div>
+{% endif %}
 <div class="space" style="">
       {% if user.groups.all.0.name == "makerghat" or user.groups.all.0.name == "census" or user.groups.all.0.name == "restricted" %}
         <div class = "container" id="mydiv" style="float:left;">
